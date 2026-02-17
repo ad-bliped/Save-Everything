@@ -45,6 +45,42 @@ dir .\scripts
 - `bootstrap-foorink.ps1`
 - `bootstrap-foorink.bat`
 
+## CMD에서 자주 나는 오류 해결 (지금 화면 기준)
+스크린샷의 오류 2개는 아래 원인입니다.
+
+1. `'C:\Users\...\Desktop\APP"'은 명령이 아닙니다`
+   - 경로만 입력해서 생긴 오류입니다.
+   - CMD에서는 아래처럼 `cd`를 붙여야 합니다.
+   ```bat
+   cd /d "C:\Users\신예찬\Desktop\APP"
+   ```
+
+2. `'gh'은(는) 내부 또는 외부 명령...이 아닙니다`
+   - GitHub CLI(gh)가 아직 설치되지 않은 상태입니다.
+   - 해결 방법:
+     - A안: gh 설치 후 사용
+       ```bat
+       winget install --id GitHub.cli
+       gh auth login
+       gh repo clone ad-bliped/Save-Everything Foorink
+       ```
+     - B안: gh 없이 git으로 받기
+       ```bat
+       git clone https://github.com/ad-bliped/Save-Everything.git Foorink
+       ```
+
+### CMD에서 그대로 복붙하면 되는 최소 명령
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP"
+git clone https://github.com/ad-bliped/Save-Everything.git Foorink
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+dir scripts
+```
+
+`dir scripts`에서 아래 파일이 보이면 정상입니다.
+- `bootstrap-foorink.bat`
+- `bootstrap-foorink.ps1`
+
 ## 코드 복사(동기화) 방법
 
 ### Windows PowerShell
