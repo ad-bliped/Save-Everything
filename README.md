@@ -130,6 +130,24 @@ npm run build:apk
 
 빌드 완료 후 URL에서 APK를 내려받아 갤럭시에 설치하세요.
 
+## `npm install`에서 `ENOENT package.json` 에러가 뜰 때
+지금 캡처처럼 이 에러는 **정상적인 설치 에러가 아니라 경로 에러**입니다.
+
+`C:\Users\신예찬\Desktop\APP`에서 `npm install`을 실행하면
+`APP\package.json`을 찾다가 실패합니다.
+
+반드시 아래처럼 **Foorink 폴더까지 이동**한 뒤 실행하세요.
+
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+dir package.json
+npm install
+npm run start
+```
+
+- `dir package.json`에서 파일이 보이면 위치가 맞습니다.
+- 파일이 안 보이면 아직 프로젝트를 덜 받은 상태라서, 위의 clone 단계부터 다시 진행하면 됩니다.
+
 ## `ERR_MODULE_NOT_FOUND` (`expo-sqlite`) 오류가 계속 날 때
 현재 Windows 일부 환경에서 `expo-sqlite`가 설치되어 있어도
 `build/SQLiteDatabase`를 못 찾는 오류가 반복될 수 있습니다.
