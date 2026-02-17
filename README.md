@@ -98,6 +98,23 @@ scripts\bootstrap-foorink.bat
 bash scripts/bootstrap-foorink.sh
 ```
 
+### CMD에서 `.bat`가 깨져 보일 때 (한글/인코딩 문제)
+간혹 Windows CMD 인코딩 때문에 `.bat` 출력이 깨지거나 명령이 오작동할 수 있습니다.
+이 경우 아래 순서로 진행하세요.
+
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+chcp 65001
+scripts\bootstrap-foorink.bat
+```
+
+그래도 안 되면 bootstrap 단계는 건너뛰고 바로 실행해도 됩니다.
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+npm install
+npm run start
+```
+
 ## 복사 후 실행
 ```bash
 cd C:\Users\신예찬\Desktop\APP\Foorink
