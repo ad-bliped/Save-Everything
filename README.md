@@ -24,7 +24,13 @@
 4. 압축 해제 후 폴더 이름을 `Foorink`로 맞춤
 5. 폴더를 `C:\Users\신예찬\Desktop\APP\Foorink`에 이동
 
-#### 방법 B: git clone
+#### 방법 B: GitHub CLI (공식 `gh` CLI)
+```powershell
+cd "C:\Users\신예찬\Desktop\APP"
+gh repo clone ad-bliped/Save-Everything Foorink
+```
+
+#### 방법 C: git clone
 ```powershell
 cd "C:\Users\신예찬\Desktop\APP"
 git clone <저장소주소> Foorink
