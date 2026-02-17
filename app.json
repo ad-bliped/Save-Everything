@@ -17,8 +17,7 @@
       "package": "com.foorink.app"
     },
     "plugins": [
-      "expo-router",
-      "expo-sqlite"
+      "expo-router"
     ]
   }
 }
