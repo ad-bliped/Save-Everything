@@ -130,6 +130,37 @@ npm run build:apk
 
 빌드 완료 후 URL에서 APK를 내려받아 갤럭시에 설치하세요.
 
+## `ERR_MODULE_NOT_FOUND` (`expo-sqlite`) 오류가 날 때
+스크린샷의 에러는 보통 `node_modules`가 깨졌거나 설치가 덜 된 상태입니다.
+
+아래를 **CMD에서 순서대로** 실행하세요.
+
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+rd /s /q node_modules
+if exist package-lock.json del /f /q package-lock.json
+npm cache clean --force
+npm install
+npx expo install expo-sqlite
+npm run start -c
+```
+
+### 추가 확인
+1. Node 버전 확인 (권장: LTS)
+```bat
+node -v
+npm -v
+```
+2. 그래도 동일하면 프로젝트를 새로 다시 받기
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP"
+rmdir /s /q Foorink
+gh repo clone ad-bliped/Save-Everything Foorink
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+npm install
+npm run start
+```
+
 ## 포함된 초기 구조
 - Expo + React Native + TypeScript
 - Expo Router 라우팅
