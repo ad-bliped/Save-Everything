@@ -7,6 +7,28 @@
 
 `C:\Users\신예찬\Desktop\APP\Foorink`
 
+## 지금 캡처 에러(ENOENT package.json) 10초 해결
+지금 화면은 `C:\Users\신예찬\Desktop\APP` 폴더에서 실행해서 생긴 오류입니다.
+
+### 방법 A (가장 쉬움)
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+npm install
+npm run start
+```
+
+### 방법 B (`cd` 없이 실행)
+```bat
+npm --prefix "C:\Users\신예찬\Desktop\APP\Foorink" install
+npm --prefix "C:\Users\신예찬\Desktop\APP\Foorink" run start
+```
+
+### 위치 확인 1줄
+```bat
+dir "C:\Users\신예찬\Desktop\APP\Foorink\package.json"
+```
+- 이 파일이 보이면 경로는 정상입니다.
+
 ## "파일이 없어"가 뜰 때 먼저 확인
 `bootstrap-foorink.ps1` 파일이 없다는 뜻은 보통 2가지입니다.
 
