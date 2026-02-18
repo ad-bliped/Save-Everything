@@ -53,6 +53,27 @@ npm run recover:windows
 - `node_modules`/`package-lock.json`/npm cache 정리
 - 재설치 후 `expo start -c` 실행
 
+### `npm run recover:windows`가 없다고 뜰 때
+이 메시지는 **지금 PC의 `package.json`이 오래된 버전**이라는 뜻입니다.
+
+아래 순서로 확인하세요.
+
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+dir package.json
+findstr /i "recover:windows recover-windows" package.json
+```
+
+- `recover:windows` 또는 `recover-windows`가 안 보이면 최신 코드가 아닙니다.
+- 이때는 바로 스크립트 파일로 실행하세요:
+
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+scripts\recover-windows.bat
+```
+
+- `scripts\recover-windows.bat` 파일도 없으면, 저장소를 다시 받아야 합니다.
+
 ## "파일이 없어"가 뜰 때 먼저 확인
 `bootstrap-foorink.ps1` 파일이 없다는 뜻은 보통 2가지입니다.
 

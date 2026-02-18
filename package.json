@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "build:apk": "eas build -p android --profile preview",
     "build:aab": "eas build -p android --profile production",
-    "recover:windows": "scripts\\recover-windows.bat"
+    "recover:windows": "scripts\\recover-windows.bat",
+    "recover-windows": "scripts\\recover-windows.bat"
   },
   "dependencies": {
     "expo": "~51.0.28",
