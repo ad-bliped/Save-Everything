@@ -29,6 +29,30 @@ dir "C:\Users\신예찬\Desktop\APP\Foorink\package.json"
 ```
 - 이 파일이 보이면 경로는 정상입니다.
 
+## 내가 뭘 잘못한 건가? (지금 캡처 기준)
+아니요, 명령은 거의 맞게 하셨어요. 문제는 보통 아래 2가지 중 하나입니다.
+
+1. **로컬 폴더가 최신 코드가 아님** (예전 `expo-sqlite` 설정이 남아 있음)
+2. **`node_modules`/캐시가 꼬여서 예전 모듈 경로를 계속 참조함**
+
+그래서 아래 복구 스크립트를 추가했습니다.
+
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+scripts\recover-windows.bat
+```
+
+또는 npm 스크립트로:
+```bat
+npm run recover:windows
+```
+
+이 스크립트는 자동으로:
+- 현재 폴더 확인
+- `package.json`의 `expo-sqlite` 흔적 점검
+- `node_modules`/`package-lock.json`/npm cache 정리
+- 재설치 후 `expo start -c` 실행
+
 ## "파일이 없어"가 뜰 때 먼저 확인
 `bootstrap-foorink.ps1` 파일이 없다는 뜻은 보통 2가지입니다.
 
