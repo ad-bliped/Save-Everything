@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Foorink",
+    "slug": "foorink",
+    "scheme": "foorink",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.foorink.app"
+    },
+    "android": {
+      "package": "com.foorink.app"
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
