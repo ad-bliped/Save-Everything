@@ -7,6 +7,22 @@
 
 `C:\Users\신예찬\Desktop\APP\Foorink`
 
+## 지금처럼 `...\Desktop\APP>` 프롬프트에서 계속 에러 날 때 (가장 쉬운 픽스)
+캡처처럼 `APP` 폴더에서 `npm install`/`npm run start`를 실행하면 항상 실패합니다.
+(`APP\\package.json`이 없기 때문)
+
+### 방법 1: APP 위치에서 바로 실행 (추천)
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP"
+Foorink\RUN_FROM_APP.bat
+```
+
+### 방법 2: 명령 2줄로 직접 실행
+```bat
+npm --prefix "C:\Users\신예찬\Desktop\APP\Foorink" install
+npm --prefix "C:\Users\신예찬\Desktop\APP\Foorink" run start -c
+```
+
 ## 지금 캡처 에러(ENOENT package.json) 10초 해결
 지금 화면은 `C:\Users\신예찬\Desktop\APP` 폴더에서 실행해서 생긴 오류입니다.
 
