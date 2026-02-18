@@ -170,31 +170,33 @@ npm run start
 - `dir package.json`에서 파일이 보이면 위치가 맞습니다.
 - 파일이 안 보이면 아직 프로젝트를 덜 받은 상태라서, 위의 clone 단계부터 다시 진행하면 됩니다.
 
-## `ERR_MODULE_NOT_FOUND` (`expo-sqlite`) 오류가 계속 날 때
-현재 Windows 일부 환경에서 `expo-sqlite`가 설치되어 있어도
-`build/SQLiteDatabase`를 못 찾는 오류가 반복될 수 있습니다.
+## `ERR_MODULE_NOT_FOUND` (`expo-sqlite`) 오류가 뜨는 뜻
+이 에러는 한 줄로 말하면:
+**지금 설치된 코드/캐시에 `expo-sqlite`가 남아 있는데, 그 안의 파일(`build/SQLiteDatabase`)을 못 찾아서 앱 시작이 중단됐다**는 뜻입니다.
 
-그래서 이 저장소는 **당분간 sqlite 의존성을 제거한 안전 모드**로 변경했습니다.
-(앱 실행은 되고, 저장소는 임시 메모리 저장 방식으로 동작)
+중요: 현재 저장소의 최신 코드에서는 `expo-sqlite`를 제거한 상태라,
+정상적으로 최신본이 깔렸다면 이 에러가 나오지 않아야 합니다.
 
-아래처럼 다시 설치해서 실행하세요.
+### 바로 확인 (CMD)
+```bat
+cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
+findstr /i "expo-sqlite" package.json
+```
+- 출력이 **없어야 정상**입니다.
+- `expo-sqlite`가 보이면 예전 파일을 쓰고 있는 상태입니다.
 
+### 복구 순서 (CMD 그대로 복붙)
 ```bat
 cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
 rd /s /q node_modules
 if exist package-lock.json del /f /q package-lock.json
 npm cache clean --force
+git pull
 npm install
 npm run start -c
 ```
 
-### 추가 확인
-1. Node 버전 확인 (권장: LTS)
-```bat
-node -v
-npm -v
-```
-2. 그래도 동일하면 프로젝트를 새로 다시 받기
+### `git pull`이 안 되면 (ZIP/옛폴더 사용자)
 ```bat
 cd /d "C:\Users\신예찬\Desktop\APP"
 rmdir /s /q Foorink
@@ -203,6 +205,13 @@ cd /d "C:\Users\신예찬\Desktop\APP\Foorink"
 npm install
 npm run start
 ```
+
+### 추가 확인
+```bat
+node -v
+npm -v
+```
+- Node는 LTS 사용 권장입니다.
 
 ## 포함된 초기 구조
 - Expo + React Native + TypeScript
